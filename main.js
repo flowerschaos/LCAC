@@ -1,8 +1,19 @@
+document.addEventListener("DOMContentLoaded", () => {
+  var canvas = document.getElementById("viewport")
+  context = canvas.getContext("2d")  
+
+
 let showSwitch = true
-  // head
-var head = new Image({
-  url: "https://file.garden/ZqEYEbTufxMF4XJQ/agenthead.png"
-})
+
+makeBase()
+function makeBase(){
+      // head
+  var head = new Image()
+  head.src = "https://file.garden/ZqEYEbTufxMF4XJQ/agenthead.png"
+  head.onLoad = function(){
+    context.drawImage(head,0,0)
+  }
+}
 
 // item indexes
 var frontHairIndex = 0
@@ -754,3 +765,4 @@ if (showSwitch === false) {
     image.hide()
   })
 }
+})
