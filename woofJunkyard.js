@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   var canvas = document.getElementById("viewport")
-  context = canvas.getContext("2d")  
+  ctx = canvas.getContext("2d")  
 
 
 let showSwitch = true
@@ -11,12 +11,12 @@ function drawHead(){
   var head = new Image()
   head.src = "https://file.garden/ZqEYEbTufxMF4XJQ/agenthead.png"
   head.onload = function(){
-    context.drawImage(head,0,0)
+    ctx.drawImage(head,0,0)
   }
 }
 
 // item indexes
-var frontHairIndex = 3
+var frontHairIndex = 0
 var backHairIndex = 0
 var eyebrowIndex = 0
 var eyesIndex = 0
@@ -84,9 +84,42 @@ function drawFrontHair(){
   var frontHair = new Image()
   frontHair.src = frontHairs[frontHairIndex]
   frontHair.onload = function(){
-    context.drawImage(frontHair,0,0)
+    ctx.drawImage(frontHair,0,0)
   }
 }
+
+// it's like an onion - it has *layers*
+
+var layers = [];  // holds layers
+function addLayer(order){ /// creates and adds a layer
+    var l;
+    layers.push(l = {
+        order : order,
+        items : [],
+        render : function(){
+           this.items.forEach(function(img){
+               ctx.drawImage(img.bitmap,img.x,img.y);
+          });
+    }});
+    return l;
+}
+
+// some items for the layers
+var img1 = {
+    bitmap : new Image(drawHead),
+}
+var img2 = {
+    bitmap : new Image(frontHairs[frontHairIndex]),
+}
+// create a layer order 1
+var lay1 = addLayer(1);
+// add some items to lay1
+lay1.items.push(img1);
+
+// add a second layer order 0
+var lay2 = addLayer(0);
+lay1.items.push(img2);
+
 
 
 // const frontHairImages = [];
