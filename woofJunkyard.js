@@ -2,24 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
   var canvas = document.getElementById("viewport")
   ctx = canvas.getContext("2d")  
 
-
 let showSwitch = true
-
-drawHead()
-function drawHead(){
-      // head
-  var head = new Image()
-  head.src = "https://file.garden/ZqEYEbTufxMF4XJQ/agenthead.png"
-  head.onload = function(){
-    ctx.drawImage(head,0,0)
-  }
-}
 
 // item indexes
 var frontHairIndex = 0
-var backHairIndex = 0
+var backHairIndex = 1
 var eyebrowIndex = 0
-var eyesIndex = 0
+var eyeIndex = 0
 var mouthIndex = 0
 var suitIndex = 0
 var giftIndex = 0
@@ -27,6 +16,19 @@ var weaponIndex = 0
 var deptIndex = 0
 var rankIndex = 0
 
+var headCanvas = document.getElementById("head")
+headCTX = headCanvas.getContext("2d") 
+drawHead()
+function drawHead(){
+      // head
+  var head = new Image()
+  head.src = "https://file.garden/ZqEYEbTufxMF4XJQ/agenthead.png"
+  head.onload = function(){
+    headCTX.drawImage(head,0,0)
+  }
+}
+
+// body parts
 const frontHairs = [
   "https://file.garden/ZqEYEbTufxMF4XJQ/front%20hair/hair0.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/front%20hair/hair1.png",
@@ -77,253 +79,245 @@ const frontHairs = [
   "https://file.garden/ZqEYEbTufxMF4XJQ/front%20hair/hair46.png",
   "https://firebasestorage.googleapis.com/v0/b/woofjs-d1b27.appspot.com/o/UserImageUpload%2FdkDBOuX1YiWVA6WGooLAP7vjayG2%2Fagent-picker-thing%2F7wybycwu4u9lyyr8xrd?alt=media&token=b3175df4-ebca-4b71-aaf9-e3e6a3850ff4"
 ]
+const backHairs = [
+    "https://firebasestorage.googleapis.com/v0/b/woofjs-d1b27.appspot.com/o/UserImageUpload%2FdkDBOuX1YiWVA6WGooLAP7vjayG2%2Fagent-picker-thing%2F7wybycwu4u9lyyr8xrd?alt=media&token=b3175df4-ebca-4b71-aaf9-e3e6a3850ff4",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair0.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair1.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair2.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair3.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair4.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair5.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair6.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair7.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair8.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair9.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair10.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair11.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair12.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair13.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair14.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair15.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair16.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair17.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair18.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair19.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair20.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair21.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair22.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair23.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair24.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair25.png",
+    "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair26.png"
+]
+const eyebrows = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow0.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow1.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow2.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow3.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow4.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow5.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow6.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow7.png"
+]
+const eyes = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye0.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye1.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye2.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye3.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye4.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye5.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye6.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye7.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye8.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye9.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye10.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye11.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye12.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye13.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye14.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye15.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye16.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye17.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye18.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye19.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye20.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye21.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye22.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye23.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye24.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye25.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye26.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye27.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye28.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye20.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye30.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye31.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye32.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye33.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye34.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye35.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye36.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye37.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye38.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye39.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye40.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye41.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye42.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye43.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye44.png",
+]
+const mouths = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth0.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/mouth1.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth2.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth3.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth4.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth5.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth6.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth7.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/SodaGift.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/MagicBulletGift.png"
+]
 
+// E.G.O.
+const egoSuits = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/suits/DefaultSuit.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/suits/SodaSuit.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/suits/MagicBulletSuit.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/suits/SwordSharpenedByTearsSuit.png"
+]
+const egoGifts = [
+  "https://firebasestorage.googleapis.com/v0/b/woofjs-d1b27.appspot.com/o/UserImageUpload%2FdkDBOuX1YiWVA6WGooLAP7vjayG2%2Fagent-picker-thing%2F7wybycwu4u9lyyr8xrd?alt=media&token=b3175df4-ebca-4b71-aaf9-e3e6a3850ff4",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/gifts/SwordSharpenedByTearsGift.png"
+]
+
+// department armbands
+const controlBands = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/control/Control0.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/control/Control1.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/control/Control2.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/control/Control3.png"
+]
+const informationBands = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/information/Information0.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/information/Information1.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/information/Information2.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/information/Information3.png"
+]
+const securityBands = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/security/Security0.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/security/Security1.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/security/Security2.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/security/Security3.png"
+]
+const trainingBands = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/training/Training0.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/training/Training1.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/training/Training2.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/training/Training3.png"
+]
+const centralCommandBands = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/central%20command/CentralCommand0.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/central%20command/CentralCommand1.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/central%20command/CentralCommand2.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/central%20command/CentralCommand3.png"
+]
+const disciplinaryBands = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/disciplinary/Disciplinary0.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/disciplinary/Disciplinary1.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/disciplinary/Disciplinary2.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/disciplinary/Disciplinary3.png"
+]
+const welfareBands = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/welfare/Welfare0.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/welfare/Welfare1.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/welfare/Welfare2.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/welfare/Welfare3.png"
+]
+const recordBands = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/record/Record0.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/record/Record1.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/record/Record2.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/record/Record3.png"
+]
+const extractionBands = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/extraction/Extraction0.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/extraction/Extraction1.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/extraction/Extraction2.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/extraction/Extraction3.png"
+]
+const architectureBands = [
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/architecture/Architecture0.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/architecture/Architecture1.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/architecture/Architecture2.png",
+  "https://file.garden/ZqEYEbTufxMF4XJQ/depts/architecture/Architecture3.png"
+]
+var frontHairCanvas = document.getElementById("fronthair")
+frontHairCTX = frontHairCanvas.getContext("2d") 
 drawFrontHair()
 function drawFrontHair(){
       // front hair
   var frontHair = new Image()
   frontHair.src = frontHairs[frontHairIndex]
   frontHair.onload = function(){
-    ctx.drawImage(frontHair,0,0)
+    frontHairCTX.drawImage(frontHair,0,0)
   }
 }
 
-// it's like an onion - it has *layers*
-
-var layers = [];  // holds layers
-function addLayer(order){ /// creates and adds a layer
-    var l;
-    layers.push(l = {
-        order : order,
-        items : [],
-        render : function(){
-           this.items.forEach(function(img){
-               ctx.drawImage(img.bitmap,img.x,img.y);
-          });
-    }});
-    return l;
+var faceCanvas = document.getElementById("face")
+faceCTX = faceCanvas.getContext("2d") 
+drawEyebrows()
+function drawEyebrows(){
+      // eyebrows
+  var eyebrow = new Image()
+  eyebrow.src = eyebrows[eyebrowIndex]
+  eyebrow.onload = function(){
+    faceCTX.drawImage(eyebrow,0,0)
+  }
+}
+drawEyes()
+function drawEyes(){
+      // eyes
+  var eye = new Image()
+  eye.src = eyes[eyeIndex]
+  eye.onload = function(){
+    faceCTX.drawImage(eye,0,0)
+  }
+}
+drawMouths()
+function drawMouths(){
+      // mouths
+  var mouth = new Image()
+  mouth.src = mouths[mouthIndex]
+  mouth.onload = function(){
+    faceCTX.drawImage(mouth,0,0)
+  }
 }
 
-// some items for the layers
-var img1 = {
-    bitmap : new Image(drawHead),
+var backHairCanvas = document.getElementById("backhair")
+backHairCTX = backHairCanvas.getContext("2d") 
+drawBackHair()
+function drawBackHair(){
+      // back hair
+  var backHair = new Image()
+  backHair.src = backHairs[backHairIndex]
+  backHair.onload = function(){
+    backHairCTX.drawImage(backHair,0,0)
+  }
 }
-var img2 = {
-    bitmap : new Image(frontHairs[frontHairIndex]),
+
+var suitCanvas = document.getElementById("suit")
+suitCTX = suitCanvas.getContext("2d") 
+drawEgoSuits()
+function drawEgoSuits(){
+      // suits
+  var egoSuit = new Image()
+  egoSuit.src = egoSuits[suitIndex]
+  egoSuit.onload = function(){
+    suitCTX.drawImage(egoSuit,0,0)
+  }
 }
-// create a layer order 1
-var lay1 = addLayer(1);
-// add some items to lay1
-lay1.items.push(img1);
 
-// add a second layer order 0
-var lay2 = addLayer(0);
-lay1.items.push(img2);
-
-
-
-// const frontHairImages = [];
-// const backHair = [
-//   "https://firebasestorage.googleapis.com/v0/b/woofjs-d1b27.appspot.com/o/UserImageUpload%2FdkDBOuX1YiWVA6WGooLAP7vjayG2%2Fagent-picker-thing%2F7wybycwu4u9lyyr8xrd?alt=media&token=b3175df4-ebca-4b71-aaf9-e3e6a3850ff4",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair3.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair4.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair5.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair6.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair7.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair8.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair9.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair10.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair11.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair12.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair13.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair14.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair15.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair16.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair17.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair18.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair19.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair20.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair21.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair22.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair23.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair24.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair25.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/back%20hair/bhair26.png"
-// ]
-// const backHairImages = [];
-// const eyes = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye3.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye4.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye5.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye6.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye7.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye8.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye9.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye10.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye11.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye12.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye13.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye14.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye15.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye16.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye17.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye18.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye19.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye20.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye21.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye22.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye23.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye24.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye25.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye26.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye27.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye28.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye20.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye30.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye31.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye32.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye33.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye34.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye35.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye36.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye37.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye38.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye39.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye40.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye41.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye42.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye43.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyes/eye44.png",
-// ]
-// const eyeImages = [];
-// const eyebrow = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow3.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow4.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow5.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow6.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/eyebrows/eyebrow7.png"
-// ]
-// const eyebrowImages = [];
-// const mouth = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/mouth1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth3.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth4.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth5.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth6.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/mouth7.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/SodaGift.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/mouths/MagicBulletGift.png"
-// ]
-// const mouthImages = [];
-
-// const egoSuits = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/suits/DefaultSuit.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/suits/SodaSuit.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/suits/MagicBulletSuit.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/suits/SwordSharpenedByTearsSuit.png"
-// ]
-// const egoSuitImages = [];
-// const egoGifts = [
-//   "https://firebasestorage.googleapis.com/v0/b/woofjs-d1b27.appspot.com/o/UserImageUpload%2FdkDBOuX1YiWVA6WGooLAP7vjayG2%2Fagent-picker-thing%2F7wybycwu4u9lyyr8xrd?alt=media&token=b3175df4-ebca-4b71-aaf9-e3e6a3850ff4",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/gifts/SwordSharpenedByTearsGift.png"
-// ]
-// const egoGiftImages = [];
-
-// const controlBands = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/control/Control0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/control/Control1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/control/Control2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/control/Control3.png"
-// ]
-// const controlBandImages = [];
-// const informationBands = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/information/Information0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/information/Information1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/information/Information2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/information/Information3.png"
-// ]
-// const informationBandImages = [];
-// const securityBands = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/security/Security0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/security/Security1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/security/Security2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/security/Security3.png"
-// ]
-// const securityBandImages = [];
-// const trainingBands = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/training/Training0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/training/Training1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/training/Training2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/training/Training3.png"
-// ]
-// const trainingBandImages = [];
-// const centralCommandBands = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/central%20command/CentralCommand0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/central%20command/CentralCommand1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/central%20command/CentralCommand2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/central%20command/CentralCommand3.png"
-// ]
-// const centralCommandBandImages = [];
-// const disciplinaryBands = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/disciplinary/Disciplinary0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/disciplinary/Disciplinary1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/disciplinary/Disciplinary2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/disciplinary/Disciplinary3.png"
-// ]
-// const disciplinaryBandImages = [];
-// const welfareBands = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/welfare/Welfare0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/welfare/Welfare1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/welfare/Welfare2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/welfare/Welfare3.png"
-// ]
-// const welfareBandImages = [];
-// const recordBands = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/record/Record0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/record/Record1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/record/Record2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/record/Record3.png"
-// ]
-// const recordBandImages = [];
-// const extractionBands = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/extraction/Extraction0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/extraction/Extraction1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/extraction/Extraction2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/extraction/Extraction3.png"
-// ]
-// const extractionBandImages = [];
-// const architectureBands = [
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/architecture/Architecture0.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/architecture/Architecture1.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/architecture/Architecture2.png",
-//   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/architecture/Architecture3.png"
-// ]
-// const architectureBandImages = [];
-
-// const deptBands = [
-//   controlBands,
-//   informationBands,
-//   securityBands,
-//   trainingBands,
-//   centralCommandBands,
-//   disciplinaryBands,
-//   welfareBands,
-//   recordBands,
-//   extractionBands,
-//   architectureBands
-// ]
-// const deptBandImages = [];
 
 // // front hair image url ==> image class
 // frontHair.forEach(hair => {
