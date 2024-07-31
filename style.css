@@ -1,6 +1,30 @@
-h1{
+h1, body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+/* tringle (left) */
+        .leftTriangle {
+            display: flex;
+            width: 5;
+            height: 5;
+            border-top: 10px solid transparent;
+            border-right: 15px solid #555;
+            border-bottom: 10px solid transparent;
+        }
+/* trangle (right) */
+        .rightTriangle {
+            display: flex;
+            width: 5;
+            height: 5;
+            border-top: 10px solid transparent;
+            border-left: 15px solid #555;
+            border-bottom: 10px solid transparent;
+        }
+
+.selectorContainer {
+    display: flex;
+}
+
 @layer viewport, head, fronthair, backhair, face, suits;
 
 @layer fronthair{
@@ -39,3 +63,4 @@ canvas#fronthair{
         position: absolute;
         }
     }
+

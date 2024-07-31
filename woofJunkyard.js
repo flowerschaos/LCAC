@@ -4,6 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let showSwitch = true
 
+// check if left triangle clicked
+document.addEventListener("onmousedown", () => {
+  if (e.target.matches("leftTriangle")) {
+    frontHairIndex--
+    let fI = document.getElementById("frontHairIndex")
+    fI.innerHTML = frontHairIndex
+  }
+})
+
 // item indexes
 var frontHairIndex = 0
 var backHairIndex = 1
@@ -318,32 +327,18 @@ function drawEgoSuits(){
   }
 }
 
-
-// // front hair image url ==> image class
-// frontHair.forEach(hair => {
-//   const hairImage = new Image({
-//     url: hair
-//   })
-//   frontHairImages.push(hairImage)
-// })
-// frontHairImages.forEach(image => {
-//     image.hide()
-//   })
-//   // front hairrows
+  // front hairrows
 // var FRight = new Polygon()
 // FRight.sides = 3
 // FRight.length = 20
 // FRight.color = "orange"
 // FRight.x = -175
 // FRight.y = 281
-// FRight.onMouseDown(() => {
-//   frontHairImages[frontHairIndex].hide()
+// FRight.onmousedown(() => {
 //   frontHairIndex++
 //   if (frontHairIndex >= frontHairImages.length) {
 //     frontHairIndex = 0
 //   }
-//   frontHairImages[frontHairIndex].show()
-//   frontHairImages[frontHairIndex].sendToFront()
 // })
 // var FLeft = new Polygon()
 // FLeft.sides = 3
