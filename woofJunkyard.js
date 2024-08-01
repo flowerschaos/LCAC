@@ -2,36 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   var canvas = document.getElementById("viewport")
   ctx = canvas.getContext("2d")  
 
-let showSwitch = true
-
-// check if left triangle clicked
-const FLeft = document.addEventListener("click", (e) => {
-  console.log(e)
-  if (e.target.matches(".leftTriangle")) {
-    frontHairIndex--
-    if (frontHairIndex < 0) {
-            frontHairIndex = frontHairs.length-1
-          }
-    let fI = document.getElementById("frontHairIndex")
-    fI.innerHTML = frontHairIndex
-    frontHairCTX.clearRect(0,0,500,500)
-    drawFrontHair()
-  }
-})
-
-// check if right triangle clicked
-const FRight = document.addEventListener("click", (e) => {
-  if (e.target.matches(".rightTriangle")) {
-    frontHairIndex++
-    if (frontHairIndex >= frontHairs.length) {
-      frontHairIndex = 0
-    }
-    let fHI = document.getElementById("frontHairIndex")
-    fHI.innerHTML = frontHairIndex
-    frontHairCTX.clearRect(0,0,500,500)
-    drawFrontHair()
-  }
-})
+// let showSwitch = true
 
 // item indexes
 var frontHairIndex = 0
@@ -45,6 +16,7 @@ var weaponIndex = 0
 var deptIndex = 0
 var rankIndex = 0
 
+// head setup
 var headCanvas = document.getElementById("head")
 headCTX = headCanvas.getContext("2d") 
 drawHead()
@@ -343,6 +315,56 @@ function drawEgoSuits(){
     suitCTX.drawImage(egoSuit,0,0)
   }
 }
+
+// Select the control elements
+const fLeftButton = document.querySelector(".leftTriangle.front");
+const fRightButton = document.querySelector(".rightTriangle.front");
+const bLeftButton = document.querySelector(".leftTriangle.back");
+const bRightButton = document.querySelector(".rightTriangle.back");
+
+// Front hair controls
+fLeftButton.addEventListener("click", () => {
+  frontHairIndex--;
+  if (frontHairIndex < 0) {
+    frontHairIndex = frontHairs.length - 1;
+  }
+  document.getElementById("frontHairIndex").innerHTML = frontHairIndex;
+  frontHairCTX.clearRect(0, 0, 500, 500);
+  drawFrontHair();
+});
+
+fRightButton.addEventListener("click", () => {
+  frontHairIndex++;
+  if (frontHairIndex >= frontHairs.length) {
+    frontHairIndex = 0;
+  }
+  document.getElementById("frontHairIndex").innerHTML = frontHairIndex;
+  frontHairCTX.clearRect(0, 0, 500, 500);
+  drawFrontHair();
+});
+
+// Back hair controls
+bLeftButton.addEventListener("click", () => {
+  backHairIndex--;
+  if (backHairIndex < 0) {
+    backHairIndex = backHairs.length - 1;
+  }
+  document.getElementById("backHairIndex").innerHTML = backHairIndex;
+  backHairCTX.clearRect(0, 0, 500, 500);
+  drawBackHair();
+});
+
+bRightButton.addEventListener("click", () => {
+  backHairIndex++;
+  if (backHairIndex >= backHairs.length) {
+    backHairIndex = 0;
+  }
+  document.getElementById("backHairIndex").innerHTML = backHairIndex;
+  backHairCTX.clearRect(0, 0, 500, 500);
+  drawBackHair();
+});
+
+
 // front hairrows
 // var FRight = new Polygon()
 // FRight.sides = 3
