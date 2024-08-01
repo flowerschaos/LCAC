@@ -8,7 +8,7 @@ h1, body{
             width: 5;
             height: 5;
             border-top: 10px solid transparent;
-            border-right: 15px solid #555;
+            border-right: 15px solid #ff8400;
             border-bottom: 10px solid transparent;
         }
 /* trangle (right) */
@@ -17,7 +17,7 @@ h1, body{
             width: 5;
             height: 5;
             border-top: 10px solid transparent;
-            border-left: 15px solid #555;
+            border-left: 15px solid #ff8400;
             border-bottom: 10px solid transparent;
         }
 

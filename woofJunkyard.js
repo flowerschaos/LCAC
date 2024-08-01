@@ -5,17 +5,37 @@ document.addEventListener("DOMContentLoaded", () => {
 let showSwitch = true
 
 // check if left triangle clicked
-document.addEventListener("onmousedown", () => {
-  if (e.target.matches("leftTriangle")) {
+const FLeft = document.addEventListener("click", (e) => {
+  console.log(e)
+  if (e.target.matches(".leftTriangle")) {
     frontHairIndex--
+    if (frontHairIndex < 0) {
+            frontHairIndex = frontHairs.length-1
+          }
     let fI = document.getElementById("frontHairIndex")
     fI.innerHTML = frontHairIndex
+    frontHairCTX.clearRect(0,0,500,500)
+    drawFrontHair()
+  }
+})
+
+// check if right triangle clicked
+const FRight = document.addEventListener("click", (e) => {
+  if (e.target.matches(".rightTriangle")) {
+    frontHairIndex++
+    if (frontHairIndex >= frontHairs.length) {
+      frontHairIndex = 0
+    }
+    let fHI = document.getElementById("frontHairIndex")
+    fHI.innerHTML = frontHairIndex
+    frontHairCTX.clearRect(0,0,500,500)
+    drawFrontHair()
   }
 })
 
 // item indexes
 var frontHairIndex = 0
-var backHairIndex = 1
+var backHairIndex = 0
 var eyebrowIndex = 0
 var eyeIndex = 0
 var mouthIndex = 0
@@ -272,7 +292,6 @@ function drawFrontHair(){
     frontHairCTX.drawImage(frontHair,0,0)
   }
 }
-
 var faceCanvas = document.getElementById("face")
 faceCTX = faceCanvas.getContext("2d") 
 drawEyebrows()
@@ -302,7 +321,6 @@ function drawMouths(){
     faceCTX.drawImage(mouth,0,0)
   }
 }
-
 var backHairCanvas = document.getElementById("backhair")
 backHairCTX = backHairCanvas.getContext("2d") 
 drawBackHair()
@@ -314,7 +332,6 @@ function drawBackHair(){
     backHairCTX.drawImage(backHair,0,0)
   }
 }
-
 var suitCanvas = document.getElementById("suit")
 suitCTX = suitCanvas.getContext("2d") 
 drawEgoSuits()
@@ -326,8 +343,7 @@ function drawEgoSuits(){
     suitCTX.drawImage(egoSuit,0,0)
   }
 }
-
-  // front hairrows
+// front hairrows
 // var FRight = new Polygon()
 // FRight.sides = 3
 // FRight.length = 20
