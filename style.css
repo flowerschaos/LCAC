@@ -2,7 +2,7 @@ h1, body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-/* tringle (left) */
+/* tringles (left) */
         .leftTriangle {
             display: flex;
             width: 5;
@@ -11,7 +11,8 @@ h1, body{
             border-right: 15px solid #ff8400;
             border-bottom: 10px solid transparent;
         }
-/* trangle (right) */
+
+/* trangles (right) */
         .rightTriangle {
             display: flex;
             width: 5;
