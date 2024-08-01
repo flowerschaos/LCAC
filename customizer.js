@@ -317,55 +317,45 @@ function drawEgoSuits(){
 }
 
 // front hair
-const FLeft = document.addEventListener("click", (e) => {
-  console.log(e)
-  if (e.target.matches(".leftTriangle")) {
-    frontHairIndex--
-    if (frontHairIndex < 0) {
-            frontHairIndex = frontHairs.length-1
-          }
-    let fI = document.getElementById("frontHairIndex")
-    fI.innerHTML = frontHairIndex
-    frontHairCTX.clearRect(0,0,500,500)
-    drawFrontHair()
+function FLeft() {
+  frontHairIndex--
+  if (frontHairIndex < 0) {
+      frontHairIndex = frontHairs.length-1
   }
-})
-const FRight = document.addEventListener("click", (e) => {
-  if (e.target.matches(".rightTriangle")) {
-    frontHairIndex++
-    if (frontHairIndex >= frontHairs.length) {
-      frontHairIndex = 0
-    }
-    let fHI = document.getElementById("frontHairIndex")
-    fHI.innerHTML = frontHairIndex
-    frontHairCTX.clearRect(0,0,500,500)
-    drawFrontHair()
-  }
-})
+  let fI = document.getElementById("frontHairIndex")
+  fI.innerHTML = frontHairIndex
+  frontHairCTX.clearRect(0,0,500,500)
+  drawFrontHair()
+}
+function FRight() {
+  frontHairIndex++
+  if (frontHairIndex >= frontHairs.length) {
+          frontHairIndex = 0
+        }
+  let fHI = document.getElementById("frontHairIndex")
+  fHI.innerHTML = frontHairIndex
+  frontHairCTX.clearRect(0,0,500,500)
+  drawFrontHair()
+}
 // back hair
-const BLeft = document.addEventListener("click", (e) => {
-  console.log(e)
-  if (e.target.matches(".leftTriangle")) {
-    backHairIndex--
-    if (backHairIndex < 0) {
-            backHairIndex = backHairs.length-1
-          }
-    let bI = document.getElementById("backHairIndex")
-    bI.innerHTML = backHairIndex
-    backHairCTX.clearRect(0,0,500,500)
-    drawBackHair()
+function BLeft() {
+  backHairIndex--
+  if (backHairIndex < 0) {
+      backHairIndex = backHairs.length-1
   }
-})
-const BRight = document.addEventListener("click", (e) => {
-  if (e.target.matches(".rightTriangle")) {
-    backHairIndex++
-    if (backHairIndex >= backHairs.length) {
+  let bI = document.getElementById("backHairIndex")
+  bI.innerHTML = backHairIndex
+  backHairCTX.clearRect(0,0,500,500)
+  drawBackHair()
+}
+function BLeft() {
+  backHairIndex++
+  if (backHairIndex >= backHairs.length) {
       backHairIndex = 0
     }
-    let bHI = document.getElementById("backHairIndex")
-    bHI.innerHTML = backHairIndex
-    backHairCTX.clearRect(0,0,500,500)
-    drawBackHair()
-  }
-})
+  let bHI = document.getElementById("backHairIndex")
+  bHI.innerHTML = backHairIndex
+  backHairCTX.clearRect(0,0,500,500)
+  drawBackHair()
+}
 })
