@@ -9,9 +9,9 @@ h1, body{
             display: flex;
             width: 5;
             height: 5;
-            border-top: 10px solid transparent;
-            border-right: 15px solid #ff8400;
-            border-bottom: 10px solid transparent;
+            border-top: 20px solid transparent;
+            border-right: 25px solid #ff8400;
+            border-bottom: 20px solid transparent;
         }
 
 /* trangles (right) */
@@ -19,16 +19,16 @@ h1, body{
             display: flex;
             width: 5;
             height: 5;
-            border-top: 10px solid transparent;
-            border-left: 15px solid #ff8400;
-            border-bottom: 10px solid transparent;
+            border-top: 20px solid transparent;
+            border-left: 25px solid #ff8400;
+            border-bottom: 20px solid transparent;
         }
 
 .selectorContainer {
     display: flex;
 }
 
-@layer viewport, head, fronthair, backhair, eyebrow, eye, mouth, suits;
+@layer viewport, head, fronthair, backhair, eyebrows, eyes, mouths, suits;
 
 @layer fronthair{
 canvas#fronthair{
@@ -37,22 +37,22 @@ canvas#fronthair{
     position: absolute;
 }
 }
-@layer eyebrow{
-    canvas#eyebrow{
+@layer eyebrows{
+    canvas#eyebrows{
         border: 1px solid #ff8400;
         width: 500px;
         position: absolute;
     }
 }
-@layer eye{
-    canvas#eye{
+@layer eyes{
+    canvas#eyes{
         border: 1px solid #ff8400;
         width: 500px;
         position: absolute;
     }
 }
-@layer mouth{
-    canvas#mouth{
+@layer mouths{
+    canvas#mouths{
         border: 1px solid #ff8400;
         width: 500px;
         position: absolute;
