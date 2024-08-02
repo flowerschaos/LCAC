@@ -23,8 +23,8 @@ h1, body{
         }
 
 .shuffleButton {
-    width: 5px;
-    height: 5px;
+    width: 150px;
+    height: 200px;
 }
 
 .selectorContainer {
