@@ -253,7 +253,6 @@ architectureBands = [
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/architecture/Architecture3.png"
 ]
 ]
-
 const deptNames = [
   "Control",
   "Information",
@@ -516,4 +515,28 @@ function rankRight() {
 }
 document.getElementById("rankIndexRight").addEventListener("click", rankRight)
 
+function shuffleElements() {
+  frontHairIndex = Math.floor(Math.random() * frontHairs.length)
+  backHairIndex = Math.floor(Math.random() * backHairs.length)
+  eyebrowIndex = Math.floor(Math.random() * eyebrows.length)
+  eyeIndex = Math.floor(Math.random() * eyes.length)
+  mouthIndex = Math.floor(Math.random() * mouths.length)
+  deptIndex = Math.floor(Math.random() * deptBands.length)
+  rankIndex = Math.floor(Math.random() * rankIndex.length)
+
+  frontHairCTX.clearRect(0,0,500,500)
+  backHairCTX.clearRect(0,0,500,500)
+  eyebrowCTX.clearRect(0,0,500,500)
+  eyeCTX.clearRect(0,0,500,500)
+  mouthCTX.clearRect(0,0,500,500)
+  armbandCTX.clearRect(0,0,500,500)
+
+  drawFrontHair()
+  drawBackHair()
+  drawEyebrows()
+  drawEyes()
+  drawMouths()
+  drawBand()
+}
+document.getElementById("shuffleButton").addEventListener("click", shuffleElements)
 })

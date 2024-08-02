@@ -7,8 +7,6 @@ h1, body{
 /* tringles (left) */
         .leftTriangle {
             display: flex;
-            width: 5;
-            height: 5;
             border-top: 20px solid transparent;
             border-right: 25px solid #ff8400;
             border-bottom: 20px solid transparent;
@@ -23,6 +21,11 @@ h1, body{
             border-left: 25px solid #ff8400;
             border-bottom: 20px solid transparent;
         }
+
+.shuffleButton {
+    width: 5px;
+    height: 5px;
+}
 
 .selectorContainer {
     display: flex;
