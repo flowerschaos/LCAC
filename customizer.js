@@ -264,33 +264,37 @@ function drawFrontHair(){
     frontHairCTX.drawImage(frontHair,0,0)
   }
 }
-var faceCanvas = document.getElementById("face")
-faceCTX = faceCanvas.getContext("2d") 
+var eyebrowCanvas = document.getElementById("eyebrows")
+eyebrowCTX = eyebrowCanvas.getContext("2d") 
 drawEyebrows()
 function drawEyebrows(){
       // eyebrows
   var eyebrow = new Image()
   eyebrow.src = eyebrows[eyebrowIndex]
   eyebrow.onload = function(){
-    faceCTX.drawImage(eyebrow,0,0)
+    eyebrowCTX.drawImage(eyebrow,0,0)
   }
 }
+var eyeCanvas = document.getElementById("eyes")
+eyeCTX = eyeCanvas.getContext("2d") 
 drawEyes()
 function drawEyes(){
       // eyes
   var eye = new Image()
   eye.src = eyes[eyeIndex]
   eye.onload = function(){
-    faceCTX.drawImage(eye,0,0)
+    eyeCTX.drawImage(eye,0,0)
   }
 }
+var mouthCanvas = document.getElementById("mouths")
+mouthCTX = mouthCanvas.getContext("2d") 
 drawMouths()
 function drawMouths(){
       // mouths
   var mouth = new Image()
   mouth.src = mouths[mouthIndex]
   mouth.onload = function(){
-    faceCTX.drawImage(mouth,0,0)
+    mouthCTX.drawImage(mouth,0,0)
   }
 }
 var backHairCanvas = document.getElementById("backhair")
@@ -316,7 +320,7 @@ function drawEgoSuits(){
   }
 }
 
-// front hair
+// front hair arrows
 function frontHairLeft() {
   frontHairIndex--
   if (frontHairIndex < 0) {
@@ -327,17 +331,20 @@ function frontHairLeft() {
   frontHairCTX.clearRect(0,0,500,500)
   drawFrontHair()
 }
+document.getElementById("frontHairIndexLeft").addEventListener("click", frontHairLeft)
 function frontHairRight() {
   frontHairIndex++
-  if (frontHairIndex >= frontHairs.length) {
-          frontHairIndex = 0
-        }
+  if (backHairIndex >= backHairs.length) {
+    backHairIndex = 0
+  }
   let fHI = document.getElementById("frontHairIndex")
   fHI.innerHTML = frontHairIndex
   frontHairCTX.clearRect(0,0,500,500)
   drawFrontHair()
 }
-// back hair
+document.getElementById("frontHairIndexRight").addEventListener("click", frontHairRight)
+
+// back hair arrows
 function backHairLeft() {
   backHairIndex--
   if (backHairIndex < 0) {
@@ -348,14 +355,88 @@ function backHairLeft() {
   backHairCTX.clearRect(0,0,500,500)
   drawBackHair()
 }
+document.getElementById("backHairIndexLeft").addEventListener("click", backHairLeft)
 function backHairRight() {
   backHairIndex++
   if (backHairIndex >= backHairs.length) {
       backHairIndex = 0
     }
-  let bHI = document.getElementById("backHairIndex")
-  bHI.innerHTML = backHairIndex
+  let fI = document.getElementById("backHairIndex")
+  fI.innerHTML = backHairIndex
   backHairCTX.clearRect(0,0,500,500)
   drawBackHair()
 }
+document.getElementById("backHairIndexRight").addEventListener("click", backHairRight)
+
+// eyebrow arrows
+function eyebrowLeft() {
+  eyebrowIndex--
+  if (eyebrowIndex < 0) {
+      eyebrowIndex = eyebrows.length-1
+  }
+  let eI = document.getElementById("eyebrowIndex")
+  eI.innerHTML = eyebrowIndex
+  eyebrowCTX.clearRect(0,0,500,500)
+  drawEyebrows()
+}
+document.getElementById("eyebrowIndexLeft").addEventListener("click", eyebrowLeft)
+function eyebrowRight() {
+  eyebrowIndex++
+  if (eyebrowIndex >= eyebrows.length) {
+    eyebrowIndex = 0
+  }
+  let eyI = document.getElementById("eyebrowIndex")
+  eyI.innerHTML = eyebrowIndex
+  eyebrowCTX.clearRect(0,0,500,500)
+  drawEyebrows()
+}
+document.getElementById("eyebrowIndexRight").addEventListener("click", eyebrowRight)
+
+// eye arrows
+function eyeLeft() {
+  eyeIndex--
+  if (eyeIndex < 0) {
+      eyeIndex = eyes.length-1
+  }
+  let eI = document.getElementById("eyeIndex")
+  eI.innerHTML = eyeIndex
+  eyeCTX.clearRect(0,0,500,500)
+  drawEyes()
+}
+document.getElementById("eyeIndexLeft").addEventListener("click", eyeLeft)
+function eyeRight() {
+  eyeIndex++
+  if (eyeIndex >= eyes.length) {
+    eyeIndex = 0
+  }
+  let eyI = document.getElementById("eyeIndex")
+  eyI.innerHTML = eyeIndex
+  eyeCTX.clearRect(0,0,500,500)
+  drawEyes()
+}
+document.getElementById("eyeIndexRight").addEventListener("click", eyeRight)
+
+// mouth arrows
+function mouthLeft() {
+  mouthIndex--
+  if (mouthIndex < 0) {
+      mouthIndex = mouths.length-1
+  }
+  let eI = document.getElementById("mouthIndex")
+  eI.innerHTML = mouthIndex
+  mouthCTX.clearRect(0,0,500,500)
+  drawMouths()
+}
+document.getElementById("mouthIndexLeft").addEventListener("click", mouthLeft)
+function mouthRight() {
+  mouthIndex++
+  if (mouthIndex >= mouths.length) {
+    mouthIndex = 0
+  }
+  let eyI = document.getElementById("mouthIndex")
+  eyI.innerHTML = mouthIndex
+  mouthCTX.clearRect(0,0,500,500)
+  drawMouths()
+}
+document.getElementById("mouthIndexRight").addEventListener("click", mouthRight)
 })

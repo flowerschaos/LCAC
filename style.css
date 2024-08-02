@@ -28,7 +28,7 @@ h1, body{
     display: flex;
 }
 
-@layer viewport, head, fronthair, backhair, face, suits;
+@layer viewport, head, fronthair, backhair, eyebrow, eye, mouth, suits;
 
 @layer fronthair{
 canvas#fronthair{
@@ -37,8 +37,22 @@ canvas#fronthair{
     position: absolute;
 }
 }
-@layer face{
-    canvas#face{
+@layer eyebrow{
+    canvas#eyebrow{
+        border: 1px solid #ff8400;
+        width: 500px;
+        position: absolute;
+    }
+}
+@layer eye{
+    canvas#eye{
+        border: 1px solid #ff8400;
+        width: 500px;
+        position: absolute;
+    }
+}
+@layer mouth{
+    canvas#mouth{
         border: 1px solid #ff8400;
         width: 500px;
         position: absolute;
