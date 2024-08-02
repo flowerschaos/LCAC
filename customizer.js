@@ -317,7 +317,7 @@ function drawEgoSuits(){
 }
 
 // front hair
-function FLeft() {
+function frontHairLeft() {
   frontHairIndex--
   if (frontHairIndex < 0) {
       frontHairIndex = frontHairs.length-1
@@ -327,7 +327,7 @@ function FLeft() {
   frontHairCTX.clearRect(0,0,500,500)
   drawFrontHair()
 }
-function FRight() {
+function frontHairRight() {
   frontHairIndex++
   if (frontHairIndex >= frontHairs.length) {
           frontHairIndex = 0
@@ -338,7 +338,7 @@ function FRight() {
   drawFrontHair()
 }
 // back hair
-function BLeft() {
+function backHairLeft() {
   backHairIndex--
   if (backHairIndex < 0) {
       backHairIndex = backHairs.length-1
@@ -348,7 +348,7 @@ function BLeft() {
   backHairCTX.clearRect(0,0,500,500)
   drawBackHair()
 }
-function BLeft() {
+function backHairRight() {
   backHairIndex++
   if (backHairIndex >= backHairs.length) {
       backHairIndex = 0
