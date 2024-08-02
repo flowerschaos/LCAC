@@ -28,6 +28,10 @@ h1, body{
     display: flex;
 }
 
+.indexPreview {
+    font-size: 30px;
+}
+
 @layer viewport, head, fronthair, backhair, eyebrows, eyes, mouths, suits;
 
 @layer fronthair{
