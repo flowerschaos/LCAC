@@ -537,6 +537,14 @@ function shuffleElements() {
   drawEyes()
   drawMouths()
   drawBand()
+
 }
 document.getElementById("shuffleButton").addEventListener("click", shuffleElements)
+document.getElementById("frontHairIndex").innerHTML = frontHairIndex
+document.getElementById("backHairIndex").innerHTML = backHairIndex
+document.getElementById("eyebrowIndex").innerHTML = eyebrowIndex
+document.getElementById("eyeIndex").innerHTML = eyeIndex
+document.getElementById("mouthIndex").innerHTML = mouthIndex
+document.getElementById("deptIndex").innerHTML = deptIndex
+document.getElementById("rankIndex").innerHTML = rankIndex
 })
