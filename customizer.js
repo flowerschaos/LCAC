@@ -361,8 +361,8 @@ function frontHairLeft() {
 document.getElementById("frontHairIndexLeft").addEventListener("click", frontHairLeft)
 function frontHairRight() {
   frontHairIndex++
-  if (backHairIndex >= backHairs.length) {
-    backHairIndex = 0
+  if (frontHairIndex >= frontHairs.length) {
+    frontHairIndex = 0
   }
   let fHI = document.getElementById("frontHairIndex")
   fHI.innerHTML = frontHairIndex
@@ -522,7 +522,7 @@ function shuffleElements() {
   eyeIndex = Math.floor(Math.random() * eyes.length)
   mouthIndex = Math.floor(Math.random() * mouths.length)
   deptIndex = Math.floor(Math.random() * deptBands.length)
-  rankIndex = Math.floor(Math.random() * rankIndex.length)
+  rankIndex = Math.floor(Math.random() * deptBands[0].length)
 
   frontHairCTX.clearRect(0,0,500,500)
   backHairCTX.clearRect(0,0,500,500)
