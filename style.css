@@ -30,6 +30,7 @@ h1, body{
 
 .indexPreview {
     font-size: 30px;
+    color: #ff8400;
 }
 
 @layer viewport, head, fronthair, backhair, eyebrows, eyes, mouths, suits, armbands;
@@ -37,49 +38,49 @@ h1, body{
 @layer fronthair{
 canvas#fronthair{
     border: 1px solid #ff8400;
-    width: 500px;
+    width: 112px;
     position: absolute;
 }
 }
 @layer eyebrows{
     canvas#eyebrows{
         border: 1px solid #ff8400;
-        width: 500px;
+        width: 112px;
         position: absolute;
     }
 }
 @layer eyes{
     canvas#eyes{
         border: 1px solid #ff8400;
-        width: 500px;
+        width: 112px;
         position: absolute;
     }
 }
 @layer mouths{
     canvas#mouths{
         border: 1px solid #ff8400;
-        width: 500px;
+        width: 112px;
         position: absolute;
     }
 }
 @layer head{
     canvas#head{
          border: 1px solid #ff8400;
-        width: 500px;
+        width: 112px;
         position: absolute;
         }
     }
 @layer armband{
     canvas#armband{
         border: 1px solid #ff8400;
-        width: 500px;
+        width: 112px;
         position: absolute;
         }
     }
 @layer suits{
     canvas#suit{
         border: 1px solid #ff8400;
-        width: 500px;
+        width: 112px;
         position: absolute;
         }
     }
@@ -87,7 +88,7 @@ canvas#fronthair{
 @layer backhair{
     canvas#backhair{
         border: 1px solid #ff8400;
-        width: 500px;
+        width: 112px;
         position: absolute;
         }
     }

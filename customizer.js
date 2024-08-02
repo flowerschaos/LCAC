@@ -254,6 +254,19 @@ architectureBands = [
 ]
 ]
 
+const deptNames = [
+  "Control",
+  "Information",
+  "Security",
+  "Training",
+  "Central Command",
+  "Disciplinary",
+  "Welfare",
+  "Record",
+  "Extraction",
+  "Architecture"
+]
+
 var frontHairCanvas = document.getElementById("fronthair")
 frontHairCTX = frontHairCanvas.getContext("2d") 
 drawFrontHair()
@@ -463,7 +476,7 @@ function deptLeft() {
       deptIndex = deptBands.length-1
   }
   let dI = document.getElementById("deptIndex")
-  dI.innerHTML = deptIndex
+  dI.innerHTML = deptNames[deptIndex]
   armbandCTX.clearRect(0,0,500,500)
   drawBand()
 }
@@ -474,7 +487,7 @@ function deptRight() {
     deptIndex = 0
   }
   let dpI = document.getElementById("deptIndex")
-  dpI.innerHTML = deptIndex
+  dpI.innerHTML = deptNames[deptIndex]
   armbandCTX.clearRect(0,0,500,500)
   drawBand()
 }
