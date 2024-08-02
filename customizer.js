@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   var canvas = document.getElementById("viewport")
   ctx = canvas.getContext("2d")  
 
-// let showSwitch = true
-
 // item indexes
 var frontHairIndex = 0
 var backHairIndex = 0
@@ -193,66 +191,69 @@ const egoGifts = [
 ]
 
 // department armbands
-const controlBands = [
+const deptBands = [
+controlBands = [
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/control/Control0.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/control/Control1.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/control/Control2.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/control/Control3.png"
-]
-const informationBands = [
+],
+informationBands = [
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/information/Information0.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/information/Information1.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/information/Information2.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/information/Information3.png"
-]
-const securityBands = [
+],
+securityBands = [
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/security/Security0.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/security/Security1.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/security/Security2.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/security/Security3.png"
-]
-const trainingBands = [
+],
+trainingBands = [
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/training/Training0.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/training/Training1.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/training/Training2.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/training/Training3.png"
-]
-const centralCommandBands = [
+],
+centralCommandBands = [
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/central%20command/CentralCommand0.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/central%20command/CentralCommand1.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/central%20command/CentralCommand2.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/central%20command/CentralCommand3.png"
-]
-const disciplinaryBands = [
+],
+disciplinaryBands = [
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/disciplinary/Disciplinary0.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/disciplinary/Disciplinary1.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/disciplinary/Disciplinary2.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/disciplinary/Disciplinary3.png"
-]
-const welfareBands = [
+],
+welfareBands = [
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/welfare/Welfare0.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/welfare/Welfare1.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/welfare/Welfare2.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/welfare/Welfare3.png"
-]
-const recordBands = [
+],
+recordBands = [
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/record/Record0.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/record/Record1.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/record/Record2.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/record/Record3.png"
-]
-const extractionBands = [
+],
+extractionBands = [
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/extraction/Extraction0.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/extraction/Extraction1.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/extraction/Extraction2.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/extraction/Extraction3.png"
-]
-const architectureBands = [
+],
+architectureBands = [
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/architecture/Architecture0.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/architecture/Architecture1.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/architecture/Architecture2.png",
   "https://file.garden/ZqEYEbTufxMF4XJQ/depts/architecture/Architecture3.png"
 ]
+]
+
 var frontHairCanvas = document.getElementById("fronthair")
 frontHairCTX = frontHairCanvas.getContext("2d") 
 drawFrontHair()
@@ -317,6 +318,20 @@ function drawEgoSuits(){
   egoSuit.src = egoSuits[suitIndex]
   egoSuit.onload = function(){
     suitCTX.drawImage(egoSuit,0,0)
+  }
+}
+
+// department band nightmare hell realm
+var armbandCanvas = document.getElementById("armband")
+armbandCTX = armbandCanvas.getContext("2d") 
+
+drawBand()
+function drawBand(){
+      // real hell
+  var armband = new Image()
+  armband.src = deptBands[deptIndex][rankIndex]
+  armband.onload = function(){
+    armbandCTX.drawImage(armband,0,0)
   }
 }
 
@@ -439,4 +454,53 @@ function mouthRight() {
   drawMouths()
 }
 document.getElementById("mouthIndexRight").addEventListener("click", mouthRight)
+
+// armband arrows
+// department
+function deptLeft() {
+  deptIndex--
+  if (deptIndex < 0) {
+      deptIndex = deptBands.length-1
+  }
+  let dI = document.getElementById("deptIndex")
+  dI.innerHTML = deptIndex
+  armbandCTX.clearRect(0,0,500,500)
+  drawBand()
+}
+document.getElementById("deptIndexLeft").addEventListener("click", deptLeft)
+function deptRight() {
+  deptIndex++
+  if (deptIndex >= deptBands.length) {
+    deptIndex = 0
+  }
+  let dpI = document.getElementById("deptIndex")
+  dpI.innerHTML = deptIndex
+  armbandCTX.clearRect(0,0,500,500)
+  drawBand()
+}
+document.getElementById("deptIndexRight").addEventListener("click", deptRight)
+// rank 
+function rankLeft() {
+  rankIndex--
+  if (rankIndex < 0) {
+      rankIndex = deptBands[0].length-1
+  }
+  let rI = document.getElementById("rankIndex")
+  rI.innerHTML = rankIndex
+  armbandCTX.clearRect(0,0,500,500)
+  drawBand()
+}
+document.getElementById("rankIndexLeft").addEventListener("click", rankLeft)
+function rankRight() {
+  rankIndex++
+  if (rankIndex >= deptBands[0].length) {
+    rankIndex = 0
+  }
+  let rkI = document.getElementById("rankIndex")
+  rkI.innerHTML = rankIndex
+  armbandCTX.clearRect(0,0,500,500)
+  drawBand()
+}
+document.getElementById("rankIndexRight").addEventListener("click", rankRight)
+
 })

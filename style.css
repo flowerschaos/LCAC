@@ -32,7 +32,7 @@ h1, body{
     font-size: 30px;
 }
 
-@layer viewport, head, fronthair, backhair, eyebrows, eyes, mouths, suits;
+@layer viewport, head, fronthair, backhair, eyebrows, eyes, mouths, suits, armbands;
 
 @layer fronthair{
 canvas#fronthair{
@@ -65,6 +65,13 @@ canvas#fronthair{
 @layer head{
     canvas#head{
          border: 1px solid #ff8400;
+        width: 500px;
+        position: absolute;
+        }
+    }
+@layer armband{
+    canvas#armband{
+        border: 1px solid #ff8400;
         width: 500px;
         position: absolute;
         }
