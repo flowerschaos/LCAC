@@ -537,7 +537,6 @@ function shuffleElements() {
   drawEyes()
   drawMouths()
   drawBand()
-
 }
 document.getElementById("shuffleButton").addEventListener("click", shuffleElements)
 document.getElementById("frontHairIndex").innerHTML = frontHairIndex
@@ -547,4 +546,30 @@ document.getElementById("eyeIndex").innerHTML = eyeIndex
 document.getElementById("mouthIndex").innerHTML = mouthIndex
 document.getElementById("deptIndex").innerHTML = deptIndex
 document.getElementById("rankIndex").innerHTML = rankIndex
+
+function reset() {
+  frontHairIndex = 0
+  backHairIndex = 0
+  eyebrowIndex = 0
+  eyeIndex = 0
+  mouthIndex = 0
+  deptIndex = 0
+  rankIndex = 0
+
+  frontHairCTX.clearRect(0,0,500,500)
+  backHairCTX.clearRect(0,0,500,500)
+  eyebrowCTX.clearRect(0,0,500,500)
+  eyeCTX.clearRect(0,0,500,500)
+  mouthCTX.clearRect(0,0,500,500)
+  armbandCTX.clearRect(0,0,500,500)
+
+  drawFrontHair()
+  drawBackHair()
+  drawEyebrows()
+  drawEyes()
+  drawMouths()
+  drawBand()
+}
+document.getElementById("resetButton").addEventListener("click", reset)
+
 })
