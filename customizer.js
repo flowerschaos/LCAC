@@ -266,6 +266,18 @@ const deptNames = [
   "Architecture"
 ]
 
+// hair colors (god help me)
+const hairSwatches = [
+  teal = [
+    tealFrontHair = [
+
+    ],
+    tealBackHair = [
+
+    ]
+  ]
+]
+
 var frontHairCanvas = document.getElementById("fronthair")
 frontHairCTX = frontHairCanvas.getContext("2d") 
 drawFrontHair()
@@ -572,4 +584,8 @@ function reset() {
 }
 document.getElementById("resetButton").addEventListener("click", reset)
 
+function colors() {
+
+}
+document.getElementById("colorButton").addEventListener("click", colors)
 })
